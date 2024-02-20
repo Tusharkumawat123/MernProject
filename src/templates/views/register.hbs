@@ -1,0 +1,135 @@
+{{>navbar}} 
+
+<body>
+		{{>header}}
+<div class="container">
+  <div class="row">
+<div class="formbold-main-wrapper">
+  <div class="formbold-form-wrapper">
+    <div class="title"><h1>Register Form</h1></div>
+    <form action="/register" method="POST">
+        <div class="formbold-input-flex">
+          <div>
+              <label for="firstname" class="formbold-form-label"> First name </label>
+              <input
+              type="text"
+              name="firstname"
+              id="firstname"
+              placeholder="Frist Name"
+              class="formbold-form-input"
+              />
+          </div>
+          <div>
+              <label for="lastname" class="formbold-form-label"> Last name </label>
+              <input
+              type="text"
+              name="lastname"
+              id="lastname"
+              placeholder="Last Name"
+              class="formbold-form-input"
+              />
+          </div>
+        </div>
+
+        <div class="formbold-input-flex">
+          <div>
+              <label for="email" class="formbold-form-label"> Mail </label>
+              <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Email"
+              class="formbold-form-input"
+              />
+          </div>
+          <div>
+              <label for="phone" class="formbold-form-label"> Phone </label>
+              <input
+              type="text"
+              name="phone"
+              id="phone"
+              placeholder=""
+              class="formbold-form-input"
+              />
+          </div>
+        </div>
+
+        <div class="formbold-input-radio-wrapper">
+            <label for="jobtitle" class="formbold-form-label"> Gender </label>
+
+            <div class="formbold-radio-flex">
+              <div class="formbold-radio-group">
+                <label class="male">
+                  <input class="formbold-input-radio" type="radio" name="gender" id="male" value="male">
+                  Male
+                  <span class="formbold-radio-checkmark"></span>
+                </label>
+              </div>
+              <div class="formbold-radio-group">
+                <label class="female">
+                  <input class="formbold-input-radio" type="radio" name="gender" id="female" value="female">
+                  Female
+                  <span class="formbold-radio-checkmark"></span>
+                </label>
+              </div>
+            </div>
+        </div>
+
+        <div>
+            <label for="password" class="formbold-form-label"> Password </label>
+            <input type="password" 
+                name="password"
+                id="password"
+                placeholder="Type your password"
+                class="formbold-form-input"
+            >
+        </div>
+		<div>
+			<label for="confirm_password" class="formbold-form-label"> Confirm Password </label>
+			<input type="password" placeholder="Confirm Password" name="confirmpassword"  class="formbold-form-input" id="confirm_password">
+		</div>
+
+        <button class="formbold-btn" type="submit">
+            Register
+        </button>
+    </form>
+  </div>
+</div>
+</div>
+</div>
+{{>footer}}
+		
+		<!-- Include all js compiled plugins (below), or include individual files as needed -->
+
+		<script src="js/jquery.js"></script>
+        
+        <!--modernizr.min.js-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+		
+		<!--bootstrap.min.js-->
+        <script src="js/bootstrap.min.js"></script>
+		
+		<!-- bootsnav js -->
+		<script src="js/bootsnav.js"></script>
+		
+		<!-- jquery.sticky.js -->
+		<script src="js/jquery.sticky.js"></script>
+		
+		<!-- for progress bar start-->
+
+		<!-- progressbar js -->
+		<script src="js/progressbar.js"></script>
+
+		<!-- appear js -->
+		<script src="js/jquery.appear.js"></script>
+
+		<!-- for progress bar end -->
+
+		<!--owl.carousel.js-->
+        <script src="js/owl.carousel.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+		
+        <!--Custom JS-->
+        <script src="js/custom.js"></script>
+        
+    </body>

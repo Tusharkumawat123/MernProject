@@ -1,0 +1,52 @@
+{{>navbar}} 
+<body>
+{{>header}}
+<div class="container">
+  <div class="row">
+<div class="formbold-main-wrapper">
+  <div class="formbold-form-wrapper">
+    <div class="title"><h1>Login Form</h1></div>
+    <form action="/login" method="POST">
+        <div class="formbold-input-flex">
+          <div>
+              <label for="email" class="formbold-form-label"> Email </label>
+              <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Enter Email"
+              class="formbold-form-input"
+              />
+          </div>
+        </div>
+
+        <div>
+            <label for="password" class="formbold-form-label"> Password </label>
+            <input type="password" 
+                name="password"
+                id="password"
+                placeholder="Type your password"
+                class="formbold-form-input"
+            >
+        </div>
+        <button class="formbold-btn" type="submit">
+            Login
+        </button>
+    </form>
+  </div>
+</div>
+</div>
+</div>
+{{>footer}}
+		<script src="js/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+		<script src="js/bootsnav.js"></script>
+		<script src="js/jquery.sticky.js"></script>
+		<script src="js/progressbar.js"></script>
+		<script src="js/jquery.appear.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <script src="js/custom.js"></script>
+        
+    </body>

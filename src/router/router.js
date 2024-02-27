@@ -1,17 +1,51 @@
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const router = new express.Router();
 const FormModel = require('../model/model');
 const bcrypt = require('bcryptjs');
+const auth = require('../middleware/auth');
 
-// Routing
+
+
+// Routing Index page
 router.get('/', (req,res) =>{
     res.render("index");
 });
 
+//Secret Page
+router.get('/secret', auth, (req,res) =>{
+    res.render("secret",{
+        auth:req.user.firstname
+    });
+});
+
+// Logout Page
+router.get('/logout', auth, async(req, res)=>{
+    try{
+
+        // For single user logout
+        // req.user.tokens = req.user.tokens.filter((currentEl) =>{
+        //     return currentEl.token !== req.authToken;
+        // });
+
+        // For all user logout
+        req.user.tokens = [];
+
+        res.clearCookie('jwt_login');
+        await req.user.save();
+        res.render('login');
+        
+    }catch(err){
+        res.status(500).send(err);
+    }
+})
+
+// Register Get Request page
 router.get('/register', (req,res) =>{
     res.render("register");
 });
 
+// Register Post req Page
 router.post('/register', async(req,res) =>{
     try{
         const password = req.body.password;
@@ -28,10 +62,16 @@ router.post('/register', async(req,res) =>{
             })
             //AuthToken Function
             const token = await registerForm.genrateAuthToken(); 
+            console.log(token);
 
-            //Collection data save
+            // Set Cookies
+            res.cookie('jwt_register', token);
+
+            // Get Cookies
+            const registerToken = req.cookies.jwt_register;
+            console.log(`register_token : ${registerToken}`);
+           
             const formDataSubmit = await registerForm.save();
-
             res.status(201).render("login");
         }
         else{
@@ -43,10 +83,12 @@ router.post('/register', async(req,res) =>{
     }
 });
 
+// Login Page
 router.get('/login', (req,res) =>{
     res.render("login");
 });
 
+// Login Post req Page
 router.post('/login', async(req,res) =>{
     try{
         const enterEmail = req.body.email;
@@ -71,7 +113,11 @@ router.post('/login', async(req,res) =>{
        //AuthToken Function
        const token = await userData.genrateAuthToken(); 
        console.log(`login_token : ${token}`);
-         if(final_match){
+
+       //Set Cookies
+       res.cookie('jwt_login', token);
+
+        if(final_match){
             res.render('index',{
                  user_name:user_name,
              });

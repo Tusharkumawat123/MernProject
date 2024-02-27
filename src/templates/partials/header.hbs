@@ -21,9 +21,16 @@
 			                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
 			                <li class=" smooth-menu active"></li>
 			                    <li class=" smooth-menu"><a href="/">Home</a></li>
+								<li class=" smooth-menu"><a href="/secret">Secret</a></li>
                                 <li class="smooth-menu"><a href="/">About</a></li>
 			                    <li class="smooth-menu"><a href="/register">Register</a></li>
-			                    <li class="smooth-menu"><a href="/login">Login</a></li>
+								{{#if user_name}}
+			                   <li class="smooth-menu" id="logout"><a href="/logout">Logout</a></li>
+							   {{else if auth }}
+							   <li class="smooth-menu" id="logout"><a href="/logout">Logout</a></li>
+								{{else}}
+								 <li class="smooth-menu" id="login"><a href="/login">Login</a></li>
+								{{/if}}
 			                </ul><!--/.nav -->
 			            </div><!-- /.navbar-collapse -->
 			        </div><!--/.container-->
